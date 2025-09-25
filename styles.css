@@ -1,277 +1,234 @@
-/* Estilos Generales */
-/* Selector del body: define fuente, fondo, reset y layout general */
-body {
-    /* Fuente principal de la página */
+/* ===========================
+   ESTILOS GENERALES
+   =========================== */
+   body {
     font-family: Arial, sans-serif;
-    /* Color de fondo suave */
     background-color: #f7faff;
-    /* Quitamos margen por defecto del navegador */
     margin: 0;
-    /* Quitamos padding por defecto del navegador */
     padding: 0;
-    /* Convertimos el body en un contenedor flex para layout global */
     display: flex;
-    /* Apilamos los hijos del body en columna */
     flex-direction: column;
-    /* Asegura que el body ocupe al menos el alto de la ventana */
     min-height: 100vh;
 }
 
-/* Aplicamos box-sizing global para evitar que padding y border causen desbordamientos */
-/* Esto hace que el width incluya padding y border, evitando cálculos inesperados */
 * {
-    box-sizing: border-box; /* IMPORTANTE: Hace que width incluya padding y border */
+    box-sizing: border-box;
 }
 
-/* Cabecera */
-/* Estilos para la etiqueta <header> (si la incluyes en el HTML) */
+/* ===========================
+   CABECERA
+   =========================== */
 header {
-    /* Fondo azul oscuro para la cabecera */
-    background-color: #1E3A8A; /* Azul oscuro */
-    /* Color del texto en la cabecera */
+    background-color: #1E3A8A;
     color: white;
-    /* Centrar el texto horizontalmente */
     text-align: center;
-    /* Espacio interior de la cabecera */
     padding: 20px;
-    /* Tamaño de letra para el título */
     font-size: 24px;
-    /* Peso de fuente en negrita */
     font-weight: bold;
 }
 
-/* Layout principal */
-/* Contenedor que posiciona formulario y tabla (flex en fila por defecto) */
+/* ===========================
+   LAYOUT PRINCIPAL
+   =========================== */
 .main-container {
-    /* Activamos flexbox para el contenedor principal */
     display: flex;
-    /* Dejamos espacio entre los elementos hijos */
     justify-content: space-between;
-    /* Alineamos elementos al inicio (arriba) */
     align-items: flex-start;
-    /* Espacio entre columnas */
     gap: 20px;
-    /* Padding interno del contenedor principal */
     padding: 20px;
 }
 
-/* Formulario */
-/* Estilos generales del formulario */
+/* ===========================
+   FORMULARIO
+   =========================== */
 form {
-    /* Fondo blanco para destacar el bloque del formulario */
     background-color: white;
-    /* Padding interno para separar el contenido de los bordes */
     padding: 20px;
-    /* Bordes redondeados para un aspecto moderno */
     border-radius: 10px;
-    /* Sombra sutil para elevar visualmente el formulario */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* En el layout flex, ocupa 1 parte proporcional */
     flex: 1;
-    /* Máximo ancho que puede ocupar el formulario */
     max-width: 350px;
-    /* Asegura que el formulario ocupe todo el ancho disponible dentro de su caja */
-    width: 100%; /* Asegura que el formulario nunca se pase de su contenedor */
-}
-
-/* Inputs específicos dentro del formulario */
-/* Aplica estilos a inputs de texto, date y number dentro del form */
-form input[type="text"],
-form input[type="date"],
-form input[type="number"] {
-    /* Ocupa el 100% del ancho del contenedor padre */
-    width: 100%; /* Ocupa el 100% del espacio disponible */
-    /* Espacio interior para comodidad al escribir */
-    padding: 10px;
-    /* Margen vertical entre inputs */
-    margin: 10px 0;
-    /* Borde de los inputs */
-    border: 1px solid #cbd5e1;
-    /* Bordes ligeramente redondeados */
-    border-radius: 5px;
-    /* Forzamos que cada input sea un bloque (ocupe línea propia) */
-    display: block; /* Asegura que cada input se muestre en su propia línea */
-}
-
-/* Botones del formulario */
-/* Estilo para botones dentro del form y para elementos con clase .btn */
-form button, .btn {
-    /* Botón ocupa todo el ancho del contenedor */
     width: 100%;
-    /* Padding interior del botón */
-    padding: 12px;
-    /* Tamaño de fuente del botón */
-    font-size: 18px;
-    /* Bordes redondeados del botón */
-    border-radius: 5px;
-    /* Cursor mano al pasar el ratón */
-    cursor: pointer;
-    /* Color de fondo principal de los botones */
-    background-color: #2563eb;
-    /* Color del texto en los botones */
-    color: white;
-    /* Sin borde extra */
-    border: none;
-    /* Texto en negrita para destaque */
-    font-weight: bold;
 }
 
-/* Hover para botones: cambio de color al pasar el ratón */
-/* Nota: la coma separa dos selectores; esto aplica el hover a form button y a .btn (sin :hover) */
-/* (esto sería más correcto como "form button:hover, .btn:hover", pero respetamos tu original) */
-form button:hover , .btn {
-    /* Azul más oscuro al pasar el cursor */
-    background-color: #1d4ed8;
-}
-
-/* Botones de tipo "button" (por ejemplo: cancelar) dentro del form */
-form button[type="button"] {
-    /* Color rojo para acciones secundarias/peligro */
-    background-color: #ef4444;
-}
-
-/* Hover para botones tipo button */
-form button[type="button"]:hover {
-    /* Rojo más oscuro al pasar el ratón */
-    background-color: #dc2626;
-}
-
-/* Tabla */
-/* Contenedor de la tabla: ocupa más espacio en el layout y añade fondo/sombra */
-.table-container {
-    /* En layout flex, ocupa 2 partes (más ancho que el formulario) */
-    flex: 2;
-    /* Fondo blanco para la caja que contiene la tabla */
-    background-color: white;
-    /* Bordes redondeados para la caja */
-    border-radius: 10px;
-    /* Sombra sutil para destacar la caja */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Permite scroll horizontal si la tabla es más ancha que el contenedor (útil en móvil) */
-    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
-}
-
-/* Estilo base de la tabla */
-table {
-    /* Ocupa todo el ancho del contenedor */
-    width: 100%;
-    /* Colapsa bordes para que no haya doble línea entre celdas */
-    border-collapse: collapse;
-}
-
-/* Celdas (encabezados y datos) */
-table th, table td {
-    /* Espaciado interno en celdas */
-    padding: 12px;
-    /* Alineamos el texto a la izquierda */
-    text-align: left;
-    /* Línea inferior tenue entre filas */
-    border-bottom: 1px solid #e2e8f0;
-}
-
-/* Encabezados de la tabla */
-table th {
-    /* Fondo azul en el header */
-    background-color: #2563eb;
-    /* Texto en blanco para contraste */
-    color: white;
-}
-
-/* Alternancia de color en filas pares para mejor legibilidad */
-table tr:nth-child(even) {
-    /* Fondo claro en filas pares */
-    background-color: #f1f5f9;
-}
-
-/* Grupo de botones para acciones (editar/eliminar) */
-.btn-group {
-    /* Usamos flexbox para alinear botones en línea */
-    display: flex;
-    /* Separación entre botones */
-    gap: 8px;
-}
-
-.btn-group button {
-    /* Fondo azul medio para botones de acción */
-    background-color: #3b82f6;
-    /* Padding reducido para botones pequeños */
-    padding: 6px 10px;
-    /* Bordes redondeados */
-    border-radius: 4px;
-    /* Tamaño de fuente más pequeño para botones */
-    font-size: 14px;
-    /* Sin borde adicional */
-    border: none;
-    /* Cursor tipo mano */
-    cursor: pointer;
-    /* Texto en blanco */
-    color: white;
-}
-
-/* Hover para los botones dentro del grupo */
-.btn-group button:hover {
-    /* Azul más oscuro al pasar el ratón */
-    background-color: #1d4ed8;
-}
-
-/* Popup para actualizar */
-/* Overlay que cubre toda la pantalla cuando aparece el popup */
-.popup-overlay {
-    /* Position fixed para que quede fijo respecto a la ventana */
-    position: fixed;
-    /* Empieza en la parte superior */
-    top: 0;
-    /* Empieza en la parte izquierda */
-    left: 0;
-    /* Ocupa todo el ancho de la ventana */
-    width: 100%;
-    /* Ocupa toda la altura de la ventana */
-    height: 100%;
-    /* Fondo semitransparente para oscurecer el contenido de fondo */
-    background: rgba(0,0,0,0.5);
-    /* Por defecto lo dejamos oculto; JS lo mostrará poniendo display:flex */
-    display: none;
-    /* Centrado horizontal de su contenido hijo */
-    justify-content: center;
-    /* Centrado vertical de su contenido hijo */
-    align-items: center;
-    /* Se sitúa por encima de otros elementos */
-    z-index: 1000;
-}
-
-/* Caja interior del popup (donde va el formulario de edición) */
-.popup {
-    /* Fondo blanco para la caja */
-    background: white;
-    /* Espacio interno dentro de la caja */
-    padding: 25px;
-    /* Bordes redondeados para la caja del popup */
-    border-radius: 10px;
-    /* Sombra más pronunciada para destacar sobre el overlay */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    /* Ancho máximo para que no crezca demasiado en pantallas grandes */
-    max-width: 400px;
-    /* En pantallas pequeñas ocupa el 90% del ancho disponible */
-    width: 90%;
-}
-
-/* Estilos para el título h2 dentro del popup */
-.popup h2 {
-    /* Eliminamos margen superior para compactar el diseño */
+form h2 {
     margin-top: 0;
-    /* Color del título, azul oscuro para coherencia temática */
+    margin-bottom: 10px;
     color: #1e3a8a;
 }
 
-/* Responsive */
-/* Reglas que se aplican cuando la pantalla es igual o menor a 768px */
-@media (max-width: 768px) {
+form input[type="text"],
+form input[type="date"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    display: block;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+form button:hover {
+    background-color: #1dacd8;
+}
+
+/* ===========================
+   TABLA
+   =========================== */
+.table-container {
+    flex: 2;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+table th {
+    background-color: #2563eb;
+    color: white;
+}
+
+/* Filas pares alternadas */
+table tr:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+/* ===========================
+   BOTONES DE ACCIÓN EN TABLA
+   =========================== */
+td button {
+    margin: 0 3px;
+    padding: 5px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+td button:hover {
+    transform: scale(1.05);
+}
+
+.btn-edit {
+    background-color: #f5d93b8e;
+}
+.btn-edit:hover {
+    background-color: #f5d93b;
+}
+.btn-delete {
+    background-color: #ef4444;
+    color: white;
+}
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+/* ===========================
+RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 720px) {
+    
     .main-container {
-        /* En móvil apilamos los elementos verticalmente */
         flex-direction: column;
+        align-items: center;
+        min-width: 200px;
     }
+
     form {
-        /* En móvil permitimos que el formulario ocupe todo el ancho */
-        max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+        max-width: 100%;
     }
+
+    table {
+        border: 0;
+        min-width: unset;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 12px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 10px;
+    }
+
+    table td {
+        text-align: right;
+        padding: 8px 10px 8px 100px; /* <-- espacio a la izquierda para que el label no se superponga */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        word-break: break-word; /* <-- permite que el texto se ajuste en varias líneas */
+    }
+
+    table tr td:first-child {
+        margin-top: 5px;
+    }
+
+    table td:last-child {
+        border-bottom: none;
+    }
+
+    /* Etiquetas tipo "data-label" */
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        font-weight: bold;
+        color: #1e3a8a;
+        text-align: left;
+        width: 100px; /* <-- ancho fijo para alinear etiquetas */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Botones en bloque, centrados */
+    table td[data-label="Acciones"] {
+        text-align: center;
+        padding-left: 10px; /* sin espacio reservado para label */
+    }
+
+    table td[data-label="Acciones"] .action-btn {
+        display: inline-block;
+        margin: 4px 5px;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        width: auto;
+    }
+    
 }
