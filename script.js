@@ -66,6 +66,16 @@ async function createReservacion(data) {
     return res.json();
 }
 
+// Actualiza una reservación según su ID
+async function updateReservacion(id, data) {
+    const res = await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error("Error al actualizar reservación");
+    return res.json();
+}
 // Elimina una reservación según su ID
 async function deleteReservacion(id) {
     const res = await fetch(`${API_URL}/${id}`, {
@@ -171,4 +181,5 @@ async function eliminarReservacionUI(id) {
 document.getElementById("formulario").addEventListener("submit", agregarContacto);
 
 // Cargamos las reservaciones al cargar la página
+
 cargarReservaciones();
